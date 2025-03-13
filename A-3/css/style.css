@@ -1,0 +1,186 @@
+@charset "utf-8";
+/*노말라이즈*/
+*{
+color:#333;
+box-sizing: border-box;
+}
+body, ul, li, a{
+  padding:0;
+  margin:0;
+  text-decoration: none;
+  list-style: none;
+}
+/*라이브러리*/
+.flex{
+  display: flex;
+}
+.flex-col{
+  flex-direction: column;
+}
+.flex-grow{
+  flex: grow 1;
+}
+.w-full{
+  width:100%;
+}
+.h-full{
+  height: 100%;
+}
+.con{
+  width:1200px;
+  margin: 0 auto;
+}
+/*구현시작*/
+/*탑바 구현시작*/
+.top-bar{
+  height:100px;
+}
+.logo-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-box>a >img{
+  width:200px;
+  height: 80px;
+  object-fit: cover;
+}
+.menu-box{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.menu-box> ul > li{
+  position: relative;
+}
+.menu-box > ul > li >a{
+border:2px solid #000;
+border-width: 2px 1px;
+}
+.menu-box > ul > li:first-child >a{
+  border-width: 2px 1px 2px 2px;
+}
+.menu-box > ul > li:last-child >a{
+  border-width: 2px 2px 2px 1px;
+}
+.menu-box ul > li >a{
+  display: inline-block;
+  padding:5px 0;
+  width:150px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.menu-box ul > li:hover >a{
+  background-color: #000;
+  color:#fff;
+}
+.menu-box > ul ul{
+  height: 0;
+  overflow: hidden;
+  transition: height .6s;
+  width:150px;
+  position: absolute;
+  border:2px solid #000;
+  border-width: 0px 2px 2px 2px;
+  border-color: #fff;
+  z-index: 3;
+  background-color: #fff;
+}
+.menu-box > ul>li:hover ul{
+  height: 130px;
+  border-color: #000;
+}
+/*슬라이드 구현*/
+.section-1{
+  height:300px;
+  width:100%;
+}
+.slide-box{
+  height: 100%;
+  width:100%;
+}
+.slides{
+  height: 100%;
+  width:100%;
+  position: relative;
+}
+.slide-item{
+  position: absolute;
+  top:0;
+  left:0;
+  opacity: 0;
+  transition: opacity .5s;
+  height: 100%;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide-item>span{
+position: absolute;
+padding:5px 10px;
+font-size: 2.5rem;
+font-weight: bold;
+color:#fff;
+background-color: rgba(0,0,0,0.5);
+}
+.slide-item>img{
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+}
+.slide-box[data-index="0"] .slide-item-1{
+  opacity: 1;
+}
+.slide-box[data-index="1"] .slide-item-2{
+  opacity: 1;
+}
+.slide-box[data-index="2"] .slide-item-3{
+  opacity: 1;
+}
+/*섹션 2 구현*/
+.section-2{
+height: 200px;
+}
+.tab-box, .banner-box, .shortcut-box{
+  width:400px;
+  flex-shrink: 0;
+}
+.tab-box{
+  height: 100%;
+  margin:5px;
+  display: flex;
+  flex-direction: column;
+  border:2px solid #000;
+  border-width: 0 0 2px 2px;
+}
+.tab-title>ul>li{
+  display: inline-block;
+  padding:5px 10px;
+  border:2px solid #000;
+  font-size: 1.3rem;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+.tab-title>ul>li.active{
+  border-bottom-color: #fff;
+}
+.tab-title>ul>li:first-child{
+  border-width: 2px 0;
+}
+.tab-content{
+  margin-top: -2px;
+  flex-grow: 1;
+  border:2px solid #000;
+  border-width: 2px 2px 0 0;
+}
+.tab-content>ul>li{
+  display: none;
+}
+.tab-content>ul>li.active{
+  display: flex;
+  background-color: red;
+}
